@@ -16,4 +16,7 @@ chmod +x ~/.claude/bin/statusline
 
 echo "Installation complete!"
 echo "Update your ~/.claude/settings.json to use:"
-echo '  "command": "/Users/'$USER'/.claude/bin/statusline"'
+echo '  "statusLine": {'
+echo '    "type": "command",'
+echo '    "command": "/Users/'$USER'/.claude/bin/statusline"'
+echo '  }'
