@@ -47,6 +47,12 @@ impl TranscriptReader {
 impl TranscriptEntry {
     /// 1行からTranscriptEntryをパース
     pub fn parse_line(line: &str) -> Option<Self> {
+        #[cfg(feature = "debug_json")]
+        {
+            use crate::debug::{DebugLogger, LogType};
+            DebugLogger::log_json(LogType::Transcript, line);
+        }
+        
         line.try_into().ok()
     }
 
