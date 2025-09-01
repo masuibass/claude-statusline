@@ -47,10 +47,7 @@ impl TranscriptReader {
 impl TranscriptEntry {
     /// 1行からTranscriptEntryをパース
     pub fn parse_line(line: &str) -> Option<Self> {
-        if line.trim().is_empty() {
-            return None;
-        }
-        serde_json::from_str(line).ok()
+        line.try_into().ok()
     }
 
     /// エントリからトークン総数を取得
